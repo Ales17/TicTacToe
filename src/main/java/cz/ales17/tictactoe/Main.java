@@ -1,13 +1,16 @@
 package cz.ales17.tictactoe;
 
+import java.util.Random;
+
 /**
  * Hello world!
  *
  */
 public class Main
 {
-    public static void main( String[] args )
+    public static void main(String[] args)
     {
-        System.out.println( "Hello World!" );
+        TicTacToe t = new TicTacToe();
+         
     }
 }
