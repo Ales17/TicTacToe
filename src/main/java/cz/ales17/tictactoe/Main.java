@@ -10,7 +10,8 @@ public class Main
 {
     public static void main(String[] args)
     {
-        TicTacToe t = new TicTacToe();
-         
+        TicTacToe t = new TicTacToe()
+                ;
+
     }
 }

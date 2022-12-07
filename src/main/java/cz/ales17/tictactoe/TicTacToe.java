@@ -27,16 +27,33 @@ public class TicTacToe implements ActionListener {
        frame.setVisible(true);
        textField.setBackground(new Color(25,25,25));
        textField.setForeground(new Color(25,255,0));
-       textField.setFont(new Font("Ink Free",Font.BOLD,75));
+       textField.setFont(new Font("Ink Free",0,70));
        textField.setHorizontalAlignment(JLabel.CENTER);
-       textField.setVerticalAlignment(JLabel.CENTER);
+        textField.setVerticalAlignment(SwingConstants.CENTER);
+
        textField.setText("Tic-Tac-Toe");
        textField.setOpaque(true);
 
+
        titlePanel.setLayout(new BorderLayout());
        titlePanel.setBounds(0,0,800,100);
+
+       buttonPanel.setLayout(new GridLayout(3,3));
+       buttonPanel.setBackground(new Color(150,150,150));
+
+        for(int i=0;i<9;i++) {
+            buttons[i] = new JButton();
+            buttonPanel.add(buttons[i]);
+            buttons[i].setFont(new Font("MV Boli",Font.BOLD,120));
+            buttons[i].setFocusable(false);
+            buttons[i].addActionListener(this);
+        }
+
        titlePanel.add(textField);
-       frame.add(titlePanel);
+       frame.add(titlePanel,"North");
+       frame.add(buttonPanel);
+       // Game start
+       firstTurn();
 
     }
 
@@ -46,7 +63,11 @@ public class TicTacToe implements ActionListener {
     }
 
     public void firstTurn() {
-
+        // Wait until program shows X turn or O turn
+        try{Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+        // 0 = p1, 1 = p2
+        if(random.nextInt(2)==0) {player1Turn=true;
+        textField.setText("X turn");} else{player1Turn=false; textField.setText("O turn");}
     }
 
     public void check() {
